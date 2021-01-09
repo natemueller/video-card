@@ -43,6 +43,12 @@ HEIGHT.times do |y|
       image.pixel_color(x+dx, y+dy, Magick::Pixel.new(*dst_pixel))
     end
 
+    subsampled_pixel = subsampled
+                         .zip([7, 7, 3])
+                         .map {|p, s| (p*Magick::QuantumRange/s.to_f).round }
+                         .map {|p| [0, [Magick::QuantumRange, p].min].max }
+    image.pixel_color(x, y, Magick::Pixel.new(*subsampled_pixel))
+
     out.write([(subsampled[0] << 5) + (subsampled[1] << 2) + subsampled[2]].pack('C'))
   end
 
@@ -50,3 +56,5 @@ HEIGHT.times do |y|
 end
 
 out.write("\0" * (ROM_SIZE - row_size*HEIGHT))
+
+image.write(ARGV[0] + '.subsampled.png')

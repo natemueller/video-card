@@ -15,10 +15,10 @@ implementation super messy for no real gain.
 
 ## Horizontal Sync
 
-Exit visible area: 0 1100 1000 (200)
-Start of hsync:    0 1101 0010 (210)
-End of hsync:      0 1111 0010 (242)
-End of line:       1 0000 1000 (264)
+* Exit visible area: 0 1100 1000 (200)
+* Start of hsync:    0 1101 0010 (210)
+* End of hsync:      0 1111 0010 (242)
+* End of line:       1 0000 1000 (264)
 
 exit visible => end of line:
   * set: B3 ⊼ B6 ⊼ B7
@@ -32,10 +32,10 @@ start of hsync => end of hsync:
 
 ## Vertical Sync
 
-Exit visible area: 10 0101 1000 (600)
-Start of vsync:    10 0101 1001 (601)
-End of vsync:      10 0101 1101 (605)
-End of frame:      10 0111 0100 (628)
+* Exit visible area: 10 0101 1000 (600)
+* Start of vsync:    10 0101 1001 (601)
+* End of vsync:      10 0101 1101 (605)
+* End of frame:      10 0111 0100 (628)
 
 exit visible => end of frame:
   * set: (B4 ∧ B6 ∧ B9) ⊼ B3

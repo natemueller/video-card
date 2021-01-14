@@ -28,7 +28,7 @@ HEIGHT.times do |y|
                    .map {|p, s| (p*s/Magick::QuantumRange.to_f).round }
     error = subsampled
               .zip([7, 7, 3], pixel.to_a)
-              .map {|p, s, o| (p*Magick::QuantumRange/s.to_f).round - o }
+              .map {|p, s, o| o - (p*Magick::QuantumRange/s.to_f).round }
 
     [
       [1, 0, 7/16.0],

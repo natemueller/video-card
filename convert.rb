@@ -1,8 +1,8 @@
 require 'rmagick'
 
-WIDTH = 100
-HEIGHT = 75
-ROM_SIZE = 32*1024
+WIDTH = 400
+HEIGHT = 300
+ROM_SIZE = 512*1024
 
 module Magick
   class Pixel

@@ -48,4 +48,7 @@ minipro -p AT28C256 -w finch.jpg.bin
 
 ## Wiring Layout
 
+Note that the vsync counters in the upper left are flipped in order to
+simplify the wire runs.
+
 ![demo setup](doc/wiring.png?raw=True)

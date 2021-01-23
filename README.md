@@ -3,7 +3,7 @@
 This uses the same general approach as Ben Eater's ["world's worst
 video card"](https://eater.net/vga), but with a few improvements:
 
-  * Reduced chip count (22 => 14) and simplified wiring.  The hsync
+  * Reduced chip count (22 => 13) and simplified wiring.  The hsync
     and vsync logic each fit comfortably on a single breadboard, as
     opposed to two in Ben's origin design.
   * 400x300 resolution.  A 6502 can't drive this at native resolution,
@@ -12,10 +12,14 @@ video card"](https://eater.net/vga), but with a few improvements:
   * No black vertical lines.  These were artifacts of slow EEPROM
     setup time.
 
-There are a few ways you could optimize this further, but the ones
-I've found would require sharing ICs between the hsync and vsync
-logic.  This design is optimized for simple wiring on breadboards vs
-saving a couple bucks on chips.
+This doesn't strictly adhere to the VGA timing spec.  Specifically,
+the vsync pulse is long and there are a couple glitches on the hsync
+line after the pulse is over.  This works fine on the LCDs I've tested
+with.  I don't know how a CRT would handle it.
+
+You could drop another two chips by running at 200x150 and storing
+your frame buffer in RAM, but I think this is about as good as you'll
+get with this approach and resolution.
 
 ## 8-bit Color
 

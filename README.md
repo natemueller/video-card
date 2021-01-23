@@ -1,5 +1,7 @@
 # Actually Not A Bad Video Card
 
+![demo setup](doc/demo.png?raw=True)
+
 This uses the same general approach as Ben Eater's ["world's worst
 video card"](https://eater.net/vga), but with a few improvements:
 
@@ -28,7 +30,7 @@ The values for the resistor ladder don't appear to match Ben's math,
 but that's because you need to account for the internal 120Ω
 resistance of the 74LS273.
 
-## Creating and uploading images
+## Creating and Uploading Images
 
 I wrote my own image converter because I wanted to learn about
 dithering algorithms and because I'm too lazy to figure out how to use
@@ -43,3 +45,7 @@ docker build -t video-card-converter .
 docker run --rm -v $PWD:/6502 -w /6502 video-card-converter ruby convert.rb finch.jpg
 minipro -p AT28C256 -w finch.jpg.bin
 ```
+
+## Wiring Layout
+
+![demo setup](doc/wiring.png?raw=True)

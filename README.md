@@ -43,7 +43,7 @@ debugging.
 ```bash
 docker build -t video-card-converter .
 docker run --rm -v $PWD:/6502 -w /6502 video-card-converter ruby convert.rb finch.jpg
-minipro -p AT28C256 -w finch.jpg.bin
+minipro -p SST39SF040 -w finch.jpg.bin
 ```
 
 ## Wiring Layout
